@@ -1,10 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const posts = require("./posts.json"); // Importando os dados do JSON
+const posts = require("./posts.json");
 
 const app = express();
 
-// Middleware para permitir requisições de diferentes origens (CORS)
 app.use(cors());
 app.use(express.json());
 
@@ -25,5 +24,7 @@ app.get("/api/posts/:id", (req, res) => {
   res.json(post);
 });
 
-// Exportar o app para a Vercel
+// ❌ REMOVE O app.listen() pois a Vercel não suporta servidores ativos
+
+// ✅ Exporta o handler correto para a Vercel
 module.exports = app;
