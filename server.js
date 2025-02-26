@@ -26,6 +26,12 @@ app.get("/api/posts/:id", (req, res) => {
   res.json(post);
 });
 
+app.get("/", (req, res) => {
+  res.send(
+    "Bem-vindo à API CodeConnect! Use /api/posts para acessar os posts."
+  );
+});
+
 // Iniciar o servidor
 app.listen(PORT, () => {
   console.log(`✅ Servidor rodando em http://localhost:${PORT}`);
